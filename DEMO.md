@@ -12,6 +12,7 @@
 2. [Quantifiable Accuracy Metrics](#2-quantifiable-accuracy-metrics-the-ragas-flex)
 3. [Neuro-Symbolic Search Depth](#3-neuro-symbolic-search-depth)
 4. [Technical Deep Dive: The Self-Reflective Critic](#4-technical-deep-dive-the-self-reflective-critic)
+5. [Full Query & Output Log](#5-full-query--output-log)
 
 ---
 
@@ -327,7 +328,120 @@ Generated: "The SOL for PI in Florida is four years."
 
 ---
 
-## Quick Start
+---
+
+## 5. Full Query & Output Log
+
+Below are the actual "Legal Responses" generated for the 8 benchmark queries, demonstrating the system's ability to synthesize statutes, case law, and web results into professional legal analysis.
+
+<details>
+<summary><b>Q1: FL Personal Injury Statute of Limitations (Core Retrieval)</b></summary>
+
+**Query:** What is the statute of limitations for personal injury claims in Florida?
+
+**Output:**
+> In Florida, the statute of limitations for personal injury claims based on negligence is two years from the date the cause of action accrues. This change was enacted by the Tort Reform Act of 2023, specifically through Florida Statute § 95.11(3)(a), as amended by HB 837, effective March 24, 2023. Prior to this amendment, the statute of limitations for such claims was four years. The new two-year limitation applies to causes of action accruing after March 24, 2023, while the previous four-year limitation applies to causes of action that accrued before that date [Source 1].
+
+**Citations:**
+- [1] https://www.flsenate.gov/Laws/Statutes/2023/95.11
+</details>
+
+<details>
+<summary><b>Q2: Damage Caps in FL Medical Malpractice (GraphRAG Good Law)</b></summary>
+
+**Query:** Are there caps on non-economic damages in Florida medical malpractice?
+
+**Output:**
+> In Florida, there are currently no caps on non-economic damages in medical malpractice cases. This is due to the Florida Supreme Court's decision in North Broward Hospital District v. Kalitan, 219 So. 3d 49 (Fla. 2017), which struck down the statutory cap on non-economic damages in personal injury medical malpractice cases. The Court found that the cap violated the equal protection guarantee of the Florida Constitution... [Source 1]. This decision extended the reasoning from Estate of McCall v. United States, 134 So. 3d 894 (Fla. 2014) [Source 2].
+
+**Citations:**
+- [1] https://casetext.com/case/n-broward-hosp-dist-v-kalitan
+- [2] https://casetext.com/case/estate-of-mccall-v-united-states-1
+</details>
+
+<details>
+<summary><b>Q3: 60% Fault in FL Car Accident (Amendment Tracking)</b></summary>
+
+**Query:** What happens if I'm 60% at fault in a car accident in Florida?
+
+**Output:**
+> In Florida, if you are found to be 60% at fault in a car accident, you would be barred from recovering any damages due to the state's modified comparative negligence rule. This rule, as amended by the Tort Reform Act of 2023 (HB 837), stipulates that a claimant who is more than 50% at fault for their own harm cannot recover damages in a negligence action [Source 1][Source 2].
+
+**Citations:**
+- [1] https://www.flsenate.gov/Laws/Statutes/2023/768.81
+- [2] https://www.flsenate.gov/Session/Bill/2023/837
+</details>
+
+<details>
+<summary><b>Q4: Texas Medical Malpractice SOL (Corrective Trigger / Stress Test)</b></summary>
+
+**Query:** What is the statute of limitations for medical malpractice in Texas?
+
+**Output:**
+> In Texas, the statute of limitations for medical malpractice claims is generally two years from the date of the occurrence of the alleged malpractice. This is codified in TX Civ. Prac. & Rem. Code § 74.251 [Source 1]. Additionally, there is an absolute statute of repose that bars any claim filed more than ten years after the date of the alleged malpractice [Source 1].
+
+**Citations:**
+- [1] https://statutes.capitol.texas.gov/Docs/CP/htm/CP.74.htm
+</details>
+
+<details>
+<summary><b>Q5: FL Class Action Requirements (Web Fallback / Stress Test)</b></summary>
+
+**Query:** What are the requirements for a class action lawsuit in Florida?
+
+**Output:**
+> In Florida, the requirements for maintaining a class action lawsuit are primarily governed by Florida Rule of Civil Procedure 1.220. Prerequisite elements include (1) Numerosity, (2) Commonality, (3) Typicality, and (4) Adequacy of representation [Source 2]. Additionally, the class must satisfy one of the three subdivisions of Rule 1.220(b) [Source 2].
+
+**Citations:**
+- [1] https://www.floridabar.org/rules/ctproc/
+</details>
+
+<details>
+<summary><b>Q6: FL Med Mal Pre-Suit Requirements (Procedural Precision)</b></summary>
+
+**Query:** What are the pre-suit requirements for a medical malpractice case in Florida?
+
+**Output:**
+> Before filing a medical malpractice lawsuit in Florida, a claimant must adhere to requirements in Fla. Stat. § 766.106: (1) Pre-Suit Investigation with a verified written medical expert opinion (§ 766.104); (2) Service of a Notice of Intent to initiate litigation at least 90 days before filing suit; (3) A mandatory 90-day pre-suit period during which discovery occurs and settlement may be reached [Source 1][Source 4].
+
+**Citations:**
+- [1] https://www.flsenate.gov/Laws/Statutes/2023/766.106
+</details>
+
+<details>
+<summary><b>Q7: Suing the State for Car Accidents (Sovereign Immunity)</b></summary>
+
+**Query:** Can I sue the state of Florida for a car accident caused by a government vehicle?
+
+**Output:**
+> Yes, Florida has waived sovereign immunity for tort claims under Fla. Stat. § 768.28, but liability is capped at $300,000 per claim and $500,000 per incident. A 180-day pre-suit notice period to the appropriate agency is mandatory before filing suit [Source 1].
+
+**Citations:**
+- [1] https://www.flsenate.gov/Laws/Statutes/2023/768.28
+</details>
+
+<details>
+<summary><b>Q8: Cross-Jurisdiction SOL Comparison (Multi-Step Reasoning)</b></summary>
+
+**Query:** Compare the statute of limitations for personal injury across Florida, California, and Federal law
+
+**Output:**
+> | Jurisdiction | Statute of Limitations | Key Statute |
+> |--------------|------------------------|-------------|
+> | **Florida**  | 2 years (as of 2023)  | § 95.11(3)(a) |
+> | **California**| 2 years                | CCP § 335.1 |
+> | **Federal**  | Varies (borrows state) | Borrows local state SOL |
+>
+> **Key Differences:** Florida recently reduced its period from 4 to 2 years (HB 837). California explicitly allows tolling via the discovery rule [Source 1][Source 4].
+
+**Citations:**
+- [1] https://www.flsenate.gov/Laws/Statutes/2023/95.11
+- [4] https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=335.1.&lawCode=CCP
+</details>
+
+---
+
+## 6. Quick Start
 
 ```bash
 pip install -e .
