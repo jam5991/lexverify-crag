@@ -1,0 +1,65 @@
+{
+  "dataset": "fl_personal_injury",
+  "jurisdiction": "Florida",
+  "description": "Gold-standard Q&A pairs for Florida personal injury law evaluation.",
+  "pairs": [
+    {
+      "id": "fl_pi_001",
+      "query": "What is the statute of limitations for personal injury claims in Florida?",
+      "expected_answer": "Under Florida Statute § 768.075, the statute of limitations for personal injury claims in Florida is generally two years from the date of the incident. This was changed from four years to two years effective March 24, 2023, under HB 837.",
+      "source_citations": [
+        "Fla. Stat. § 95.11(3)",
+        "HB 837 (2023)"
+      ],
+      "area_of_law": "personal_injury",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fl_pi_002",
+      "query": "What is the comparative negligence standard in Florida for personal injury cases?",
+      "expected_answer": "Florida follows a modified comparative negligence standard as of March 24, 2023 (HB 837). Under the new law, a plaintiff who is found to be more than 50% at fault for their own injuries is barred from recovery. Previously, Florida followed a pure comparative negligence standard.",
+      "source_citations": [
+        "Fla. Stat. § 768.81",
+        "HB 837 (2023)"
+      ],
+      "area_of_law": "personal_injury",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "fl_pi_003",
+      "query": "What damages can be recovered in a Florida wrongful death case?",
+      "expected_answer": "Under the Florida Wrongful Death Act (Fla. Stat. § 768.16-768.26), survivors may recover: loss of support and services, loss of companionship, mental pain and suffering of survivors, medical and funeral expenses. The personal representative may recover lost net accumulations to the estate. Non-economic damages are available to specific statutory beneficiaries.",
+      "source_citations": [
+        "Fla. Stat. § 768.16",
+        "Fla. Stat. § 768.21",
+        "Fla. Stat. § 768.26"
+      ],
+      "area_of_law": "wrongful_death",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "fl_pi_004",
+      "query": "What are the requirements for a medical malpractice claim in Florida?",
+      "expected_answer": "Florida requires a pre-suit investigation and notification process under Fla. Stat. § 766.106. The plaintiff must obtain a verified written medical expert opinion confirming reasonable grounds to believe there was medical negligence. A 90-day pre-suit notice must be sent to the prospective defendant. The statute of limitations is generally two years from discovery, with a four-year statute of repose.",
+      "source_citations": [
+        "Fla. Stat. § 766.106",
+        "Fla. Stat. § 766.104",
+        "Fla. Stat. § 95.11(4)(b)"
+      ],
+      "area_of_law": "medical_malpractice",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fl_pi_005",
+      "query": "Does Florida have damage caps for personal injury cases?",
+      "expected_answer": "Florida generally does not have caps on economic damages in personal injury cases. Non-economic damage caps in medical malpractice cases were ruled unconstitutional by the Florida Supreme Court in Estate of McCall v. United States (2014) for wrongful death cases and North Broward Hospital District v. Kalitan (2017) for personal injury cases. However, sovereign immunity caps apply to claims against government entities under Fla. Stat. § 768.28.",
+      "source_citations": [
+        "Estate of McCall v. United States, 134 So. 3d 894 (Fla. 2014)",
+        "North Broward Hospital District v. Kalitan, 219 So. 3d 49 (Fla. 2017)",
+        "Fla. Stat. § 768.28"
+      ],
+      "area_of_law": "personal_injury",
+      "difficulty": "advanced"
+    }
+  ]
+}

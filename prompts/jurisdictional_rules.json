@@ -1,0 +1,62 @@
+{
+  "jurisdictions": {
+    "Florida": {
+      "abbreviation": "FL",
+      "statute_format": "Fla. Stat. § {section}",
+      "court_hierarchy": [
+        "Florida Supreme Court",
+        "Florida District Court of Appeal",
+        "Florida Circuit Court"
+      ],
+      "areas_of_law": [
+        "personal_injury",
+        "medical_malpractice",
+        "wrongful_death",
+        "premises_liability",
+        "product_liability",
+        "workers_compensation"
+      ],
+      "citation_style": "Florida Style Manual"
+    },
+    "California": {
+      "abbreviation": "CA",
+      "statute_format": "Cal. {code} Code § {section}",
+      "court_hierarchy": [
+        "California Supreme Court",
+        "California Court of Appeal",
+        "California Superior Court"
+      ],
+      "areas_of_law": [
+        "personal_injury",
+        "employment_law",
+        "landlord_tenant",
+        "consumer_protection",
+        "product_liability"
+      ],
+      "citation_style": "California Style Manual"
+    },
+    "Federal": {
+      "abbreviation": "US",
+      "statute_format": "{title} U.S.C. § {section}",
+      "court_hierarchy": [
+        "Supreme Court of the United States",
+        "United States Court of Appeals",
+        "United States District Court"
+      ],
+      "areas_of_law": [
+        "constitutional_law",
+        "civil_rights",
+        "federal_tort_claims",
+        "securities",
+        "bankruptcy",
+        "immigration"
+      ],
+      "citation_style": "Bluebook"
+    }
+  },
+  "routing_rules": {
+    "default_jurisdiction": "Federal",
+    "multi_jurisdiction_handling": "analyze_all_applicable",
+    "conflict_of_laws_note": "When state and federal law conflict, note both and indicate which likely controls."
+  }
+}
