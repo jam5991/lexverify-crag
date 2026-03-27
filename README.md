@@ -32,6 +32,7 @@ graph TD
 ```
 
 ---
+## Repo Structure
 
 ```
 lexverify-crag/
