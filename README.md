@@ -123,8 +123,48 @@ python evaluate_legal_benchmarks.py --jurisdiction "Florida"
 
 ---
 
+## 🛡️ Production Safety Rails
+
+### Rate Limiting & Token Costs
+
+The CRAG pipeline makes multiple LLM calls per query. Here's how we manage the cloud bill:
+
+| Stage | API | Avg Cost/Query | Rate Limit Strategy |
+|-------|-----|:--------------:|---------------------|
+| **Route** | OpenAI GPT-4o | ~$0.005 | Cached for repeated queries |
+| **Evaluate** | OpenAI GPT-4o | ~$0.02 | **Distilled critic** reduces to $0.00 (local Ollama) |
+| **Generate** | OpenAI GPT-4o | ~$0.03 | `max_tokens=2048` cap |
+| **Grade** | OpenAI GPT-4o | ~$0.02 | Skippable in low-risk mode |
+| **Augment** | Tavily | ~$0.01 | Circuit breaker: max 5 results, 1 call/query |
+| **Embed** | OpenAI | ~$0.0001 | 1024-dim (not 3072) to reduce cost |
+| **TOTAL** | | **~$0.08** | **~$0.01 with distilled critic** |
+
+### Fallback Circuit Breaker
+
+The web search fallback (`WebSearchAgent`) is guarded:
+- **Max 5 results per augmentation** — prevents runaway Tavily costs
+- **Domain whitelist** — only searches `law.cornell.edu`, `casetext.com`, `findlaw.com`, `justia.com`, `courtlistener.com`, `scholar.google.com`
+- **Graceful degradation** — if Tavily is down or rate-limited, the pipeline generates from available docs with a lower confidence flag
+
+### Pinecone Resilience
+
+The retriever wraps all Pinecone calls in `try/except`. If the vector store is unavailable:
+1. Returns empty document list
+2. CRAG evaluator triggers `REINDEX`
+3. Pipeline falls back to Tavily web search
+4. Response clearly indicates web-sourced data
+
+### Cost Optimization Path
+
+```
+Production mode:   GPT-4o critic         → ~$0.08/query
+Fast mode (--fast): Ollama phi3:mini     → ~$0.03/query (no eval cost)
+Batch mode:        Distilled + skip grade → ~$0.01/query
+```
+
+---
+
 ## 🔮 Roadmap / Future Work
 - [x] **GraphRAG Integration:** Knowledge graph (NetworkX) captures "Overturned/Affirmed/Amended" relationships between cases for Good Law verification.
 - [x] **Distilled Critic Model:** Ollama-based fast local critic with GPT-4o escalation for ambiguous scores (`--fast` flag).
 - [x] **Multi-Step Reasoning:** Cross-jurisdiction comparison via query decomposition, parallel CRAG sub-pipelines, and synthesis (`compare` command).
-

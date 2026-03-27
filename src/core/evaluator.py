@@ -76,14 +76,21 @@ reliable for answering the user's legal query.
 
 For each document, assess:
 1. **Legal Relevance**: Does the document directly address the legal question?
-2. **Jurisdictional Match**: Is it from the correct jurisdiction?
-3. **Good Law Status**: Is the cited law still valid (not overturned, superseded, or expired)?
+2. **Jurisdictional Match & Conflict Detection**: Is it from the correct \
+jurisdiction? CRITICAL: Check for cross-jurisdiction contamination — a Florida \
+statute retrieved for a New York query is INCORRECT even if the topic matches \
+semantically. Sister-state precedent may be persuasive but scores lower. \
+Always verify the document's jurisdiction against the target jurisdiction.
+3. **Good Law Status**: Is the cited law still valid (not overturned, \
+superseded, or expired)?
 4. **Recency**: Is the document current enough for the legal context?
 
 Score each document as:
 - **correct**: Highly relevant, correct jurisdiction, good law, current.
-- **ambiguous**: Partially relevant or uncertain jurisdiction/validity.
-- **incorrect**: Irrelevant, wrong jurisdiction, bad law, or outdated.
+- **ambiguous**: Partially relevant, uncertain jurisdiction/validity, or \
+sister-state precedent.
+- **incorrect**: Irrelevant, wrong jurisdiction, bad law, outdated, or \
+CROSS-JURISDICTION CONFLICT (document from different state than target).
 
 Provide a confidence score (0.0 to 1.0) and brief reasoning for each.
 """

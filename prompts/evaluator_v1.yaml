@@ -14,9 +14,17 @@ system: |
   1. **Legal Relevance**: Does the document directly address the legal question?
      - Score higher if the document discusses the specific legal issue.
      - Score lower if it only tangentially mentions related topics.
-  2. **Jurisdictional Match**: Is it from the correct jurisdiction?
-     - Federal law applies broadly; state law must match the target state.
-     - Sister-state precedent may be persuasive but scores lower.
+  2. **Jurisdictional Match & Cross-Jurisdiction Conflict Detection**:
+     - CRITICAL: Check for jurisdictional contamination. Does this document's
+       jurisdiction MATCH the target jurisdiction? A Florida statute retrieved
+       for a New York query is an INCORRECT match — score it incorrect even
+       if the legal topic is semantically similar.
+     - Federal law applies broadly; state law MUST match the target state.
+     - Sister-state precedent may be persuasive but scores lower (ambiguous).
+       Always note in reasoning: "This is [State X] law applied to a [State Y] query."
+     - Watch for statute number collisions: different states may use similar
+       section numbers (e.g., both FL and TX have § 95.11-style numbering).
+       Verify the jurisdiction, not just the citation format.
   3. **Good Law Status**: Is the cited law still valid?
      - Check for language indicating the case was overturned, superseded,
        vacated, or modified.
@@ -31,7 +39,8 @@ system: |
   - **ambiguous** (0.4 ≤ confidence < 0.8): Partially relevant, uncertain
     jurisdiction match, or unknown validity status.
   - **incorrect** (confidence < 0.4): Irrelevant, wrong jurisdiction,
-    overturned/superseded, or severely outdated.
+    overturned/superseded, severely outdated, or CROSS-JURISDICTION CONFLICT
+    (document from a different state than the target jurisdiction).
 
 user: |
   **Legal Query**: {query}
