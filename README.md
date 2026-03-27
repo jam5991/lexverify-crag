@@ -33,6 +33,57 @@ graph TD
 
 ---
 
+```
+lexverify-crag/
+├── .env.example                # Template for API keys (OpenAI, Tavily, Pinecone)
+├── .gitignore
+├── README.md                   # The one I wrote for you
+├── pyproject.toml              # Or requirements.txt (Poetry/Conda preferred)
+│
+├── data/                       # DO NOT UPLOAD LARGE DATA TO GIT
+│   ├── raw/                    # Raw .pdf or .json legal statutes (sample)
+│   ├── processed/              # Cleaned text/chunks for embedding
+│   └── gold_standard/          # The "Ground Truth" Q&A pairs for evaluation
+│
+├── src/                        # Main source code
+│   ├── __init__.py
+│   ├── config.py               # Hyperparameters (top_k, temperature, thresholds)
+│   ├── main.py                 # CLI entry point to run the pipeline
+│   │
+│   ├── core/                   # The "Brain" of the CRAG architecture
+│   │   ├── router.py           # Jurisdictional routing logic
+│   │   ├── retriever.py        # Vector DB (Pinecone/Milvus) interface
+│   │   ├── evaluator.py        # THE CORE: The "Self-Reflective Critic" logic
+│   │   └── generator.py        # Final response synthesis + citation formatting
+│   │
+│   ├── agents/                 # If using LangGraph/Multi-agent logic
+│   │   ├── web_search.py       # Fallback search (Tavily/Serper)
+│   │   └── grader.py           # Hallucination/Relevance grading prompts
+│   │
+│   └── utils/                  # Helper functions
+│       ├── legal_cleaning.py   # Regex/parsing for legal citations
+│       ├── embeddings.py       # Embedding model wrappers
+│       └── logger.py           # Structured logging for debugging
+│
+├── notebooks/                  # MLE Research Phase
+│   ├── 01_eda_legal_docs.ipynb # Initial data exploration
+│   └── 02_rag_benchmarking.ipynb # Comparing Baseline RAG vs. LexVerify CRAG
+│
+├── evals/                      # The "Science" part of MLE
+│   ├── run_evals.py            # Script to run RAGAS / DeepEval
+│   └── results/                # JSON/CSV outputs of performance metrics
+│
+├── prompts/                    # Keep prompts separate from code
+│   ├── evaluator_v1.yaml
+│   ├── generator_v1.yaml
+│   └── jurisdictional_rules.json
+│
+└── tests/                      # Unit tests for core logic
+    ├── test_retrieval.py
+    └── test_critic_scoring.py
+```
+---
+
 ## 🛠️ Tech Stack
 * **Orchestration:** LangGraph / LlamaIndex
 * **Vector Database:** Pinecone (Serverless) using `text-embedding-3-small`
