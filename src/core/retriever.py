@@ -7,9 +7,13 @@ with jurisdiction-aware metadata filtering.
 
 from __future__ import annotations
 
+import logging
+
 from pydantic import BaseModel, Field
 
 from src.config import Settings, get_settings
+
+logger = logging.getLogger(__name__)
 
 
 # ── Data Models ──
@@ -56,6 +60,7 @@ class LegalRetriever:
         response = client.embeddings.create(
             model=self.settings.embedding_model,
             input=text,
+            dimensions=self.settings.embedding_dimensions,
         )
         return response.data[0].embedding
 
@@ -76,38 +81,47 @@ class LegalRetriever:
 
         Returns:
             List of RetrievedDocument ordered by relevance.
+            Returns empty list if Pinecone is unavailable (triggers CRAG fallback).
         """
         k = top_k or self.settings.top_k
-        query_embedding = self._get_embedding(query)
 
-        # Build metadata filter
-        metadata_filter = {}
-        if jurisdiction:
-            metadata_filter["jurisdiction"] = {"$eq": jurisdiction}
-        if doc_type:
-            metadata_filter["doc_type"] = {"$eq": doc_type}
+        try:
+            query_embedding = self._get_embedding(query)
 
-        # Query Pinecone
-        index = self._get_index()
-        results = index.query(
-            vector=query_embedding,
-            top_k=k,
-            include_metadata=True,
-            filter=metadata_filter if metadata_filter else None,
-        )
+            # Build metadata filter
+            metadata_filter = {}
+            if jurisdiction:
+                metadata_filter["jurisdiction"] = {"$eq": jurisdiction}
+            if doc_type:
+                metadata_filter["doc_type"] = {"$eq": doc_type}
 
-        # Map to RetrievedDocument models
-        documents = []
-        for match in results.get("matches", []):
-            meta = match.get("metadata", {})
-            documents.append(
-                RetrievedDocument(
-                    content=meta.get("text", ""),
-                    source_uri=meta.get("source_uri", ""),
-                    jurisdiction=meta.get("jurisdiction", ""),
-                    doc_type=meta.get("doc_type", ""),
-                    relevance_score=match.get("score", 0.0),
-                )
+            # Query Pinecone
+            index = self._get_index()
+            results = index.query(
+                vector=query_embedding,
+                top_k=k,
+                include_metadata=True,
+                filter=metadata_filter if metadata_filter else None,
             )
 
-        return documents
+            # Map to RetrievedDocument models
+            documents = []
+            for match in results.get("matches", []):
+                meta = match.get("metadata", {})
+                documents.append(
+                    RetrievedDocument(
+                        content=meta.get("text", ""),
+                        source_uri=meta.get("source_uri", ""),
+                        jurisdiction=meta.get("jurisdiction", ""),
+                        doc_type=meta.get("doc_type", ""),
+                        relevance_score=match.get("score", 0.0),
+                    )
+                )
+
+            return documents
+
+        except Exception as e:
+            logger.warning(
+                "Pinecone retrieval failed (will fall back to web search): %s", e
+            )
+            return []

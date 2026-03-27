@@ -1,0 +1,98 @@
+[
+  {
+    "id": "fl-stat-95-11-3",
+    "text": "Florida Statute § 95.11(3)(a) — Statute of Limitations for Personal Injury. As amended by HB 837 (effective March 24, 2023), the statute of limitations for negligence actions resulting in personal injury is TWO (2) YEARS from the date the cause of action accrues. Previously, Florida allowed four years for personal injury claims. The new two-year limitation applies to causes of action accruing after March 24, 2023. For causes of action that accrued before that date, the prior four-year statute of limitations applies.",
+    "source_uri": "https://www.flsenate.gov/Laws/Statutes/2023/95.11",
+    "jurisdiction": "Florida",
+    "doc_type": "statute",
+    "area_of_law": "personal_injury"
+  },
+  {
+    "id": "fl-stat-768-81",
+    "text": "Florida Statute § 768.81 — Comparative Negligence. As amended by HB 837 (2023), Florida now follows a MODIFIED comparative negligence standard. Under this standard, a claimant who is found to be greater than 50 percent at fault for his or her own harm may not recover any damages. This replaced Florida's prior pure comparative negligence system, which allowed plaintiffs to recover reduced damages regardless of their percentage of fault. The modified comparative negligence standard applies to negligence actions filed after March 24, 2023.",
+    "source_uri": "https://www.flsenate.gov/Laws/Statutes/2023/768.81",
+    "jurisdiction": "Florida",
+    "doc_type": "statute",
+    "area_of_law": "personal_injury"
+  },
+  {
+    "id": "fl-stat-768-16-26",
+    "text": "Florida Wrongful Death Act — Fla. Stat. §§ 768.16–768.26. The Florida Wrongful Death Act provides the exclusive remedy for survivors when a person dies due to another's wrongful act, negligence, default, or breach of contract. Under § 768.21, the following damages are recoverable: (1) Loss of the decedent's earnings from the date of injury, (2) Loss of support and services, (3) Loss of the decedent's companionship and protection, (4) Mental pain and suffering of surviving spouse and minor children, (5) Medical and funeral expenses. The personal representative may recover for the estate the loss of net accumulations (§ 768.21(6)(a)). Non-economic damages for adult children over 25 of elderly parents (over 65) were limited by § 768.21(8), but this section may face constitutional challenges.",
+    "source_uri": "https://www.flsenate.gov/Laws/Statutes/2023/768.16",
+    "jurisdiction": "Florida",
+    "doc_type": "statute",
+    "area_of_law": "wrongful_death"
+  },
+  {
+    "id": "fl-stat-766-106",
+    "text": "Florida Statute § 766.106 — Medical Malpractice Pre-Suit Requirements. Before filing a medical malpractice action in Florida, a claimant must conduct a pre-suit investigation and comply with the following requirements: (1) The claimant must obtain a verified written medical expert opinion from a medical expert confirming that there are reasonable grounds to believe that the defendant was negligent (§ 766.104). (2) The claimant must serve a notice of intent to initiate litigation on each prospective defendant at least 90 days before filing suit. (3) During the 90-day pre-suit period, the parties must exchange preliminary information and may engage in informal discovery. The statute of limitations for medical malpractice is two years from discovery of the injury, with an absolute four-year statute of repose (§ 95.11(4)(b)), except for cases involving fraud, concealment, or intentional misrepresentation.",
+    "source_uri": "https://www.flsenate.gov/Laws/Statutes/2023/766.106",
+    "jurisdiction": "Florida",
+    "doc_type": "statute",
+    "area_of_law": "medical_malpractice"
+  },
+  {
+    "id": "fl-stat-768-28",
+    "text": "Florida Statute § 768.28 — Waiver of Sovereign Immunity. The State of Florida and its agencies and subdivisions waive sovereign immunity for tort claims, but liability is capped. As of October 1, 2023 (SB 1718/SB 472): the cap is $300,000 per claim and $500,000 per incident. Claims exceeding these caps require a special legislative claims bill. Claimants must provide written notice to the appropriate agency and allow 180 days for investigation before filing suit. Note: These caps do NOT apply to private defendants — they only limit government entity liability.",
+    "source_uri": "https://www.flsenate.gov/Laws/Statutes/2023/768.28",
+    "jurisdiction": "Florida",
+    "doc_type": "statute",
+    "area_of_law": "personal_injury"
+  },
+  {
+    "id": "fl-case-mccall-v-us",
+    "text": "Estate of McCall v. United States, 134 So. 3d 894 (Fla. 2014). The Florida Supreme Court held that the statutory cap on noneconomic damages in wrongful death medical malpractice cases (former § 766.118) violated the Equal Protection Clause of the Florida Constitution (Article I, Section 2). The Court found that the cap created an arbitrary distinction between malpractice victims whose injuries were severe enough to cause death and those whose injuries did not result in death. This decision effectively invalidated non-economic damage caps in wrongful death medical malpractice cases in Florida.",
+    "source_uri": "https://casetext.com/case/estate-of-mccall-v-united-states-1",
+    "jurisdiction": "Florida",
+    "doc_type": "case_law",
+    "area_of_law": "medical_malpractice"
+  },
+  {
+    "id": "fl-case-kalitan",
+    "text": "North Broward Hospital District v. Kalitan, 219 So. 3d 49 (Fla. 2017). The Florida Supreme Court struck down the statutory cap on noneconomic damages in personal injury medical malpractice cases. Extending its reasoning from Estate of McCall v. United States (2014), the Court held that the cap in § 766.118 violated the equal protection guarantee of the Florida Constitution. The Court ruled that the Legislature's stated justification — a medical malpractice insurance crisis — was not supported by evidence and had dissipated since the cap was enacted. This means Florida currently has NO caps on non-economic damages in medical malpractice cases.",
+    "source_uri": "https://casetext.com/case/n-broward-hosp-dist-v-kalitan",
+    "jurisdiction": "Florida",
+    "doc_type": "case_law",
+    "area_of_law": "medical_malpractice"
+  },
+  {
+    "id": "fl-hb837-overview",
+    "text": "Florida HB 837 — Tort Reform Act of 2023 (effective March 24, 2023). Major changes: (1) STATUTE OF LIMITATIONS: Reduced from 4 years to 2 years for negligence actions (§ 95.11). (2) COMPARATIVE FAULT: Changed from pure comparative negligence to modified comparative negligence — plaintiffs more than 50% at fault are barred from recovery (§ 768.81). (3) EVIDENCE OF MEDICAL DAMAGES: In personal injury actions, evidence of medical treatment costs must be based on amounts actually paid or owed, not the full billed amount (§ 768.0427). (4) BAD FAITH: Insurers now have more protections in bad faith litigation. (5) PREMISES LIABILITY: Property owners have reduced duty to trespassers. (6) NEGLIGENT SECURITY: Modified standards for negligent security claims against commercial property owners.",
+    "source_uri": "https://www.flsenate.gov/Session/Bill/2023/837",
+    "jurisdiction": "Florida",
+    "doc_type": "statute",
+    "area_of_law": "personal_injury"
+  },
+  {
+    "id": "fl-stat-768-0427",
+    "text": "Florida Statute § 768.0427 — Evidence of Amount of Damages for Medical Treatment. Under HB 837 (2023), in a personal injury action, evidence of the amount payable for medical treatment must reflect the amount actually paid by or on behalf of the claimant, or the amount necessary to satisfy charges of providing the treatment. This prevents plaintiffs from presenting inflated 'sticker price' medical bills. Evidence of medical bills must be accompanied by evidence of the amount actually paid or owed after insurance adjustments, contractual arrangements, and negotiated rates.",
+    "source_uri": "https://www.flsenate.gov/Laws/Statutes/2023/768.0427",
+    "jurisdiction": "Florida",
+    "doc_type": "statute",
+    "area_of_law": "personal_injury"
+  },
+  {
+    "id": "fl-stat-768-075",
+    "text": "Florida Statute § 768.075 — Premises Liability for Trespassers. As amended, a property owner or occupier owes no duty of care to a trespasser except to refrain from intentional misconduct. A 'discovered trespasser' is one whose presence is actually known and where the owner knows or should know of conditions involving unreasonable risk of harm. For discovered trespassers, the duty extends to warning of or making safe known dangerous conditions that the trespasser is unlikely to discover. Under HB 837, the standards for transitory foreign substances on premises were also modified.",
+    "source_uri": "https://www.flsenate.gov/Laws/Statutes/2023/768.075",
+    "jurisdiction": "Florida",
+    "doc_type": "statute",
+    "area_of_law": "premises_liability"
+  },
+  {
+    "id": "ca-ccp-335-1",
+    "text": "California Code of Civil Procedure § 335.1 — Statute of Limitations for Personal Injury. In California, an action for assault, battery, or injury to, or for the death of, an individual caused by the wrongful act or neglect of another must be commenced within TWO YEARS. This two-year statute of limitations applies to most personal injury claims in California, including motor vehicle accidents, slip and fall injuries, and other negligence-based claims. The limitations period generally begins to run from the date of injury. Under the discovery rule, the period may be tolled if the plaintiff did not know and could not reasonably have discovered the injury.",
+    "source_uri": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CCP&sectionNum=335.1",
+    "jurisdiction": "California",
+    "doc_type": "statute",
+    "area_of_law": "personal_injury"
+  },
+  {
+    "id": "fed-42-usc-1983",
+    "text": "42 U.S.C. § 1983 — Civil Rights Act. Every person who, under color of any statute, ordinance, regulation, custom, or usage, of any State or Territory, subjects or causes to be subjected, any citizen of the United States to the deprivation of any rights, privileges, or immunities secured by the Constitution and laws, shall be liable to the party injured in an action at law. Section 1983 does not have its own statute of limitations; courts borrow the most analogous state personal injury statute of limitations. In Florida, the applicable limitations period for § 1983 claims is now two years (post-HB 837). In California, it is also two years (per CCP § 335.1).",
+    "source_uri": "https://www.law.cornell.edu/uscode/text/42/1983",
+    "jurisdiction": "Federal",
+    "doc_type": "statute",
+    "area_of_law": "civil_rights"
+  }
+]

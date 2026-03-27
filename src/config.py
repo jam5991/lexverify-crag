@@ -28,6 +28,9 @@ class Settings(BaseSettings):
     embedding_model: str = Field(
         default="text-embedding-3-small", description="OpenAI embedding model"
     )
+    embedding_dimensions: int = Field(
+        default=1024, description="Embedding vector dimensions (must match Pinecone index)"
+    )
     generator_model: str = Field(default="gpt-4o", description="LLM for response generation")
     evaluator_model: str = Field(default="gpt-4o", description="LLM for CRAG evaluation/critic")
 
