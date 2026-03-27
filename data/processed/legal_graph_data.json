@@ -1,0 +1,103 @@
+{
+  "nodes": [
+    {"id": "fl-stat-95-11-3", "title": "Fla. Stat. § 95.11(3)(a) — Personal Injury SOL", "jurisdiction": "Florida", "doc_type": "statute", "year": 2023, "is_active": true},
+    {"id": "fl-stat-768-81", "title": "Fla. Stat. § 768.81 — Comparative Negligence", "jurisdiction": "Florida", "doc_type": "statute", "year": 2023, "is_active": true},
+    {"id": "fl-stat-768-16-26", "title": "Florida Wrongful Death Act §§ 768.16–768.26", "jurisdiction": "Florida", "doc_type": "statute", "year": 2023, "is_active": true},
+    {"id": "fl-stat-766-106", "title": "Fla. Stat. § 766.106 — Med Mal Pre-Suit", "jurisdiction": "Florida", "doc_type": "statute", "year": 2023, "is_active": true},
+    {"id": "fl-stat-768-28", "title": "Fla. Stat. § 768.28 — Sovereign Immunity", "jurisdiction": "Florida", "doc_type": "statute", "year": 2023, "is_active": true},
+    {"id": "fl-case-mccall-v-us", "title": "Estate of McCall v. United States, 134 So. 3d 894 (Fla. 2014)", "jurisdiction": "Florida", "doc_type": "case_law", "year": 2014, "is_active": true},
+    {"id": "fl-case-kalitan", "title": "N. Broward Hosp. Dist. v. Kalitan, 219 So. 3d 49 (Fla. 2017)", "jurisdiction": "Florida", "doc_type": "case_law", "year": 2017, "is_active": true},
+    {"id": "fl-hb837-overview", "title": "HB 837 — Tort Reform Act of 2023", "jurisdiction": "Florida", "doc_type": "statute", "year": 2023, "is_active": true},
+    {"id": "fl-stat-768-0427", "title": "Fla. Stat. § 768.0427 — Medical Damages Evidence", "jurisdiction": "Florida", "doc_type": "statute", "year": 2023, "is_active": true},
+    {"id": "fl-stat-768-075", "title": "Fla. Stat. § 768.075 — Premises Liability", "jurisdiction": "Florida", "doc_type": "statute", "year": 2023, "is_active": true},
+    {"id": "ca-ccp-335-1", "title": "Cal. CCP § 335.1 — Personal Injury SOL", "jurisdiction": "California", "doc_type": "statute", "year": 2023, "is_active": true},
+    {"id": "fed-42-usc-1983", "title": "42 U.S.C. § 1983 — Civil Rights Act", "jurisdiction": "Federal", "doc_type": "statute", "year": 1871, "is_active": true},
+    {"id": "fl-stat-766-118-caps", "title": "Former Fla. Stat. § 766.118 — Med Mal Damage Caps (INVALIDATED)", "jurisdiction": "Florida", "doc_type": "statute", "year": 2003, "is_active": false}
+  ],
+  "edges": [
+    {
+      "source": "fl-stat-766-118-caps",
+      "target": "fl-case-mccall-v-us",
+      "relationship": "overturned_by",
+      "description": "McCall struck down § 766.118 damage caps for wrongful death med mal as violating equal protection",
+      "year": 2014
+    },
+    {
+      "source": "fl-stat-766-118-caps",
+      "target": "fl-case-kalitan",
+      "relationship": "overturned_by",
+      "description": "Kalitan extended McCall, striking down § 766.118 caps for personal injury med mal",
+      "year": 2017
+    },
+    {
+      "source": "fl-case-kalitan",
+      "target": "fl-case-mccall-v-us",
+      "relationship": "cites",
+      "description": "Kalitan extended the reasoning of McCall to personal injury cases",
+      "year": 2017
+    },
+    {
+      "source": "fl-stat-95-11-3",
+      "target": "fl-hb837-overview",
+      "relationship": "amended_by",
+      "description": "HB 837 reduced the personal injury SOL from 4 years to 2 years",
+      "year": 2023
+    },
+    {
+      "source": "fl-stat-768-81",
+      "target": "fl-hb837-overview",
+      "relationship": "amended_by",
+      "description": "HB 837 changed FL from pure to modified comparative negligence (50% bar)",
+      "year": 2023
+    },
+    {
+      "source": "fl-stat-768-0427",
+      "target": "fl-hb837-overview",
+      "relationship": "amended_by",
+      "description": "HB 837 changed medical damages evidence rules to reflect actual paid amounts",
+      "year": 2023
+    },
+    {
+      "source": "fl-stat-768-075",
+      "target": "fl-hb837-overview",
+      "relationship": "amended_by",
+      "description": "HB 837 modified premises liability standards for trespassers",
+      "year": 2023
+    },
+    {
+      "source": "fl-hb837-overview",
+      "target": "fl-stat-95-11-3",
+      "relationship": "modifies",
+      "description": "HB 837 directly amended § 95.11 statute of limitations",
+      "year": 2023
+    },
+    {
+      "source": "fl-hb837-overview",
+      "target": "fl-stat-768-81",
+      "relationship": "modifies",
+      "description": "HB 837 directly amended § 768.81 comparative negligence standard",
+      "year": 2023
+    },
+    {
+      "source": "fl-case-mccall-v-us",
+      "target": "fl-stat-768-16-26",
+      "relationship": "cites",
+      "description": "McCall analyzed wrongful death damages under the Wrongful Death Act",
+      "year": 2014
+    },
+    {
+      "source": "fed-42-usc-1983",
+      "target": "fl-stat-95-11-3",
+      "relationship": "cites",
+      "description": "§ 1983 borrows FL personal injury SOL for federal civil rights claims filed in FL",
+      "year": 2023
+    },
+    {
+      "source": "fed-42-usc-1983",
+      "target": "ca-ccp-335-1",
+      "relationship": "cites",
+      "description": "§ 1983 borrows CA personal injury SOL for federal civil rights claims filed in CA",
+      "year": 2023
+    }
+  ]
+}

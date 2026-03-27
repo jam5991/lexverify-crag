@@ -51,6 +51,22 @@ class Settings(BaseSettings):
     temperature: float = Field(default=0.1, description="LLM temperature for generation")
     max_tokens: int = Field(default=2048, description="Max tokens for generated response")
 
+    # ── Distilled Critic ──
+    use_distilled_critic: bool = Field(
+        default=False, description="Use local model for fast first-pass evaluation"
+    )
+    distilled_critic_model: str = Field(
+        default="phi3:mini", description="Ollama model name for distilled critic"
+    )
+    ollama_base_url: str = Field(
+        default="http://localhost:11434", description="Ollama server URL"
+    )
+
+    # ── GraphRAG ──
+    use_graph_rag: bool = Field(
+        default=True, description="Enable knowledge graph for Good Law verification"
+    )
+
 
 def get_settings() -> Settings:
     """Load and return application settings."""

@@ -34,6 +34,10 @@ class RoutingResult(BaseModel):
     state: str | None = Field(default=None, description="Specific state (e.g., 'Florida')")
     area_of_law: str = Field(description="Legal area (e.g., 'personal injury', 'contract law')")
     reasoning: str = Field(description="Brief explanation of the routing decision")
+    is_multi_step: bool = Field(
+        default=False,
+        description="True if query compares multiple jurisdictions or requires multi-step reasoning",
+    )
 
 
 # ── Router ──
@@ -43,6 +47,11 @@ You are a legal jurisdiction classifier. Given a legal query, determine:
 1. Whether it falls under federal law, state law, or both.
 2. If state law, which specific state.
 3. The area of law (e.g., personal injury, contract, criminal, family).
+4. Whether the query requires multi-step reasoning (comparing multiple \
+jurisdictions, analyzing multiple legal topics, or temporal analysis).
+
+Set is_multi_step to true if the query explicitly compares laws across \
+different states or jurisdictions (e.g., "Compare X across FL and CA").
 
 Respond with a structured classification. If the jurisdiction is unclear, \
 default to "both" with the most likely state.

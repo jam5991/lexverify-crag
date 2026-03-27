@@ -124,6 +124,7 @@ python evaluate_legal_benchmarks.py --jurisdiction "Florida"
 ---
 
 ## 🔮 Roadmap / Future Work
-- [ ] **GraphRAG Integration:** Moving from vector embeddings to a Knowledge Graph to capture "Overturned/Affirmed" relationships between cases.
-- [ ] **Distilled Critic Model:** Training a 1B parameter "Legal Critic" to reduce latency in the evaluation loop.
-- [ ] **Multi-Step Reasoning:** Supporting complex queries like "Compare Statute of Limitations for medical malpractice across the Tri-State area."
+- [x] **GraphRAG Integration:** Knowledge graph (NetworkX) captures "Overturned/Affirmed/Amended" relationships between cases for Good Law verification.
+- [x] **Distilled Critic Model:** Ollama-based fast local critic with GPT-4o escalation for ambiguous scores (`--fast` flag).
+- [x] **Multi-Step Reasoning:** Cross-jurisdiction comparison via query decomposition, parallel CRAG sub-pipelines, and synthesis (`compare` command).
+

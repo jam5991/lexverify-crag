@@ -28,6 +28,7 @@ dependencies = [
     "python-dotenv>=1.0",
     "pinecone>=5.0",
     "structlog>=24.0",
+    "networkx>=3.0",
 ]
 
 [project.optional-dependencies]
@@ -35,6 +36,9 @@ dev = [
     "pytest>=8.0",
     "pytest-asyncio>=0.23",
     "ruff>=0.5",
+]
+fast-critic = [
+    "langchain-ollama>=0.2.0",
 ]
 
 [project.scripts]
